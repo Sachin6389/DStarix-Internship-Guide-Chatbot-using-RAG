@@ -1,0 +1,12 @@
+
+# Virtual Environment
+venv/
+
+
+# Environment Variables
+.env
+
+
+# Flask
+instance/
+.webassets-cache/
