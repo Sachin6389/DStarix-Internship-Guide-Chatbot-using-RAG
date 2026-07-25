@@ -3,17 +3,17 @@ import faiss
 import numpy as np
 import pickle
 from typing import List, Any
-from sentence_transformers import SentenceTransformer
+from langchain_community.embeddings import HuggingFaceEmbeddings
 from src.embedding import EmbeddingPipeline
 
 class FaissVectorStore:
-    def __init__(self , persist_dir:str = "faiss_store", embedding_model:str="all-MiniLM-L6-v2", chunk_size:int=1000, chunk_overlap:int=200):
+    def __init__(self , persist_dir:str = "faiss_store", embedding_model:str="sentence-transformers/all-MiniLM-L6-v2", chunk_size:int=1000, chunk_overlap:int=200):
         self.persit_dir = persist_dir
         os.makedirs(self.persit_dir , exist_ok=True)
         self.index=None
         self.metadata=[]
         self.embedding_model=embedding_model
-        self.model=SentenceTransformer(embedding_model)
+        self.model=HuggingFaceEmbeddings(model_name=embedding_model)
         self.chunk_size=chunk_size
         self.chunk_overlap = chunk_overlap
         
@@ -62,7 +62,7 @@ class FaissVectorStore:
         return results
 
     def query(self,query_text:str,top_k:int=3):
-        query_emb = self.model.encode([query_text]).astype('float32')
+        query_emb = np.array(self.model.embed_query(query_text),dtype=np.float32).reshape(1, -1)
         return self.search(query_emb,top_k=top_k)
 
 

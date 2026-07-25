@@ -11,5 +11,3 @@ numpy
 
 langchain-groq
 python-dotenv
-
-sentence-transformers
