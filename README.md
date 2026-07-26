@@ -302,9 +302,7 @@ DStarix-Internship-Guide-Chatbot-using-RAG/
 ```json
 {
   
-response
-: 
-"The full name of the company is DStarix.
+"response": "The full name of the company is DStarix".
 }
 ```
 
@@ -321,10 +319,7 @@ how many months it's take for internship
 ## AI Response
 
 ```
-
-response
-: 
-"The internship duration is 3 months."
+The internship duration is 3 months.
 ```
 
 ---
