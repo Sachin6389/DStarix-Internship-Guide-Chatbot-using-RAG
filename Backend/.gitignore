@@ -1,12 +1,13 @@
-
-# Virtual Environment
 venv/
-
-
-# Environment Variables
 .env
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
 
+.git/
 
-# Flask
-instance/
-.webassets-cache/
+.idea/
+.vscode/
+
+*.log
