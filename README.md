@@ -302,7 +302,7 @@ DStarix-Internship-Guide-Chatbot-using-RAG/
 ```json
 {
   
-"response": "The full name of the company is DStarix".
+"response": "The full name of the company is DStarix."
 }
 ```
 
